@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-mkdir -p $HOME/{tmp,usr,usr/work}
+#mkdir -p $HOME/{tmp,usr,usr/work}
 
 # create all symlinks here
 current_directory=$(pwd -P)
@@ -28,7 +28,7 @@ do
 done < symlinks.txt
 
 # clone st-patched and make install
-git clone git@github.com:illusaen/st-patched.git
-cd st-patched
-sudo make install
+#git clone git@github.com:illusaen/st-patched.git
+#cd st-patched
+#sudo make install
 

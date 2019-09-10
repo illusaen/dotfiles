@@ -2,6 +2,7 @@ export ZSH="/home/wendy/.oh-my-zsh"
 ZSH_THEME="avit"
 export EDITOR="vim"
 export QT_STYLE_OVERRIDE="kvantum"
+export CONFIG_HOME="/home/wendy/.config"
 
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
