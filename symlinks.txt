@@ -1,0 +1,10 @@
+gitconfig|.gitconfig
+vimrc|.vimrc
+zshrc|.zshrc
+bin|bin
+bspwmrc|.config/bspwm/bspwmrc
+roficonfig|.config/rofi/config
+sxhkdrc|.config/sxhkd/sxhkdrc
+user-dirs.dirs|.config/user-dirs.dirs
+rofi-themes|.local/share/rofi
+
