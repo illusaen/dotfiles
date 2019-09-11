@@ -1,11 +1,11 @@
 gitconfig|.gitconfig
 tmux.conf|.tmux.conf
+Xresources|.Xresources
 vimrc|.vimrc
 zshrc|.zshrc
 bin|bin
-bspwmrc|.config/bspwm/bspwmrc
+herbstluftwm|.config/herbstluftwm/autostart
 neomutt|.config/neomutt
 roficonfig|.config/rofi/config
-sxhkdrc|.config/sxhkd/sxhkdrc
 user-dirs.dirs|.config/user-dirs.dirs
 rofi-themes|.local/share/rofi
