@@ -18,8 +18,9 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn st
-hc keybind $Mod-space spawn rofi --combi-modi "drun,run" -show combi -modi "combi,window"
+hc keybind $Mod-space spawn rofi -show 
 hc keybind Mod1+Return spawn notify_info
+hc keybind Mod1+Shift+4 spawn flameshot gui -p ~/tmp
 
 # basic movement
 # focusing clients
@@ -49,18 +50,54 @@ hc keybind $Mod-Control-k       resize up +$resizestep
 hc keybind $Mod-Control-l       resize right +$resizestep
 
 # tags
-tag_names=( {1..6} )
-tag_keys=( {1..6} 0 )
+tag_names=( {1..4} )
+tag_keys=( {1..4} 0 )
 
+# In the use_index keybinding, check the presence of the my_monitor attribute,
+# before focusing the desired tag.
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
     hc add "${tag_names[$i]}"
     key="${tag_keys[$i]}"
     if ! [ -z "$key" ] ; then
-        hc keybind "$Mod-$key" use_index "$i"
+        # first check if the tag is locked to some monitor.
+        # if so, first focus the monitor
+        hc keybind "$Mod-$key" \
+            chain , silent substitute M tags."$i".my_monitor \
+                        focus_monitor M \
+                  , use_index "$i"
         hc keybind "$Mod-Shift-$key" move_index "$i"
     fi
 done
+
+# # Add a keybinding for locking the current tag to the monitor it is displayed
+# # on. This is done by safing the current monitor index in the my_monitor
+# # attribute of the focused tag. If the monitor has a (nonempty) name, use the
+# # monitor name instead of its index.
+# herbstclient keybind $Mod-t chain \
+#     , new_attr string tags.focus.my_monitor \
+#     , substitute M monitors.focus.index set_attr tags.focus.my_monitor M \
+#     , try and \
+#         . compare monitors.focus.name != "" \
+#         . substitute M monitors.focus.name \
+#                 set_attr tags.focus.my_monitor M
+
+# # Add a keybinding for removing the lock
+# herbstclient keybind $Mod-Shift-t \
+#     remove_attr tags.focus.my_monitor
+
+# Statically define which tag should be send to which monitor
+lock_tag_to_monitor() {
+    herbstclient chain \
+        , new_attr string tags.by-name."$1".my_monitor \
+        , set_attr tags.by-name."$1".my_monitor "$2"
+}
+# Already lock some of the tags to a monitor, for example:
+# lock the second tag to the monitor with index 0
+lock_tag_to_monitor 1 0
+lock_tag_to_monitor 2 0
+lock_tag_to_monitor 3 0
+lock_tag_to_monitor 4 1
 
 # cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
@@ -129,7 +166,7 @@ hc rule focus=on # normally focus new clients
 #hc rule focus=off # normally do not focus new clients
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on manage=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 

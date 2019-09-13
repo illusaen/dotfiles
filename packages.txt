@@ -19,7 +19,6 @@ libxdmcp
 lightdm
 lightdm-gtk-greeter
 lxappearance
-lxrandr-gtk3
 materia-gtk-theme
 mumble
 neomutt

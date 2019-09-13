@@ -1,5 +1,5 @@
 export ZSH="/home/wendy/.oh-my-zsh"
-ZSH_THEME="avit"
+ZSH_THEME="refined"
 export EDITOR="vim"
 export QT_STYLE_OVERRIDE="kvantum"
 export CONFIG_HOME="/home/wendy/.config"

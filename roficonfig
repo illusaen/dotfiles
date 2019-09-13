@@ -1,0 +1,8 @@
+rofi.combi-modi: drun,run
+rofi.modi: combi,window
+rofi.theme: ~/.local/share/rofi/material
+rofi.show-icons: true
+rofi.icon-theme: Paper
+rofi.columns: 2
+rofi.display-combi: Run
+rofi.display-window: Window

@@ -1,128 +1,62 @@
-/*
- * ROFI color theme
- *
- * Based on Base16 Material Color Scheme (https://github.com/ntpeters/base16-materialtheme-scheme)
- *
- * User: Tomaszal
- * Copyright: Tomas Zaluckij
- */
-
 * {
-	base00: #263238;
-	base01: #2E3C43;
-	base02: #314549;
-	base03: #546E7A;
-	base04: #B2CCD6;
-	base05: #EEFFFF;
-	base06: #EEFFFF;
-	base07: #FFFFFF;
-	base08: #F07178;
-	base09: #F78C6C;
-	base0A: #FFCB6B;
-	base0B: #C3E88D;
-	base0C: #89DDFF;
-	base0D: #82AAFF;
-	base0E: #C792EA;
-	base0F: #FF5370;
-
-	/*base0D: #00BCD4;*/
-
-	spacing: 0;
-	background-color: transparent;
-
+  accent:                            #8fbcbb;
+  background:                        #202020;
+  background-focus:                  #404040;
+  foreground-list:                   #e5e9f0;
+  text-font:                         "Anka/Coder Condensed Bold 11";
+  list-8-window-padding:             8px;
+  inputbar-margin:                   8px;
+  prompt-padding:                    8px;
+  apps-textbox-prompt-colon-padding: 8px 0px;
+  list-element-padding:              16px;
+  list-element-margin:               @inputbar-margin;
+  list-element-border:               0px;
+}
+* {
+  background-color: @background;
+  text-color: @foreground-list;
+  font: @text-font;
 }
 
-window {
-	background-color: #263238; /*base00 + CC (80% opacity)*/
-	width: 20%;	
+#window {
+  width: 16%;
+  height: 24%;
+  padding: @list-8-window-padding;
 }
-
-mainbox {
-	children: [inputbar, message, mode-switcher, listview];
-	spacing: 12px;
-	padding: 12px 0;
-	border: 1px;
-	border-color: @base0D;
-}
-
-inputbar {
-	padding: 0 8px;
-	children: [prompt, textbox-prompt-colon, entry, case-indicator];
-}
-
-prompt {
-	text-color: @base0D;
-}
-
-textbox-prompt-colon {
-	expand: false;
-	str: ":";
-	margin: 0 1ch 0 0;
-	text-color: @base0D;
-}
-
+inputbar,
+prompt,
+textbox-prompt-colon,
 entry {
-	text-color: @base07;
+  background-color: @background;
+}
+#inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+  margin: @inputbar-margin;
+}
+#prompt {
+  padding: @prompt-padding;
+  text-color: @accent;
+}
+#textbox-prompt-colon {
+  expand: false;
+  text-color: @accent;
+  str: "▸";
+  padding: @apps-textbox-prompt-colon-padding;
+}
+#entry {
+  text-color: @accent;
+  padding: @prompt-padding;
+}
+#element {
+  padding: @list-element-padding;
+  margin: @list-element-margin;
+  border: 0;
+  background-color: @background;
+  border-color: @background;
+}
+#element.selected {
+  background-color: @background-focus;
+  text-color: @accent;
+  border-color: @accent;
 }
 
-case-indicator {
-	text-color: @base0F;
-}
-
-mode-switcher, message {
-	border: 1px 0;
-	border-color: @base0D;
-}
-
-button, textbox {
-	background-color: @base03;
-	text-color: @base07;
-	padding: 5px;
-}
-
-button selected {
-	background-color: @base0D;
-}
-
-listview {
-	scrollbar: true;
-	margin: 0 6px 0 12px;
-}
-
-scrollbar {
-	background-color: @base03;
-	handle-color: @base0D;
-	handle-width: 10px;
-	border: 0 1px;
-	border-color: @base0D;
-	margin: 0 0 0 20px;
-}
-
-element {
-	padding: 5px;
-	highlight: bold underline;
-}
-
-element normal {
-	background-color: transparent;
-}
-
-element selected {
-	background-color: @base0D;
-}
-
-element alternate {
-	/*background-color: @base03;*/
-}
-
-element normal normal, element selected normal, element alternate normal {
-	text-color: @base07;
-}
-
-element normal urgent, element selected urgent, element alternate urgent {
-	text-color: @base0F;
-}
-
-element normal active, element selected active, element alternate active {
-	text-color: @base0B;
-}
