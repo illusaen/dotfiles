@@ -1,0 +1,42 @@
+#!/bin/bash
+
+clock_symbol="\uf017"
+clock=$(date +'%I:%M %P')
+
+date_symbol="\uf073"
+date=$(date +'%a, %B %d')
+
+vol_symbol="\uf028"
+vol=`awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) | tail -n 1 | tr -d "%"`
+muted=`awk -F"[][]" '/dB/ { print $6 }' <(amixer sget Master) | tail -n 1`
+
+if [[ $muted == "off" ]]; then
+   vol_symbol="\uf026x"
+fi
+
+gap="   "
+sep=" "
+
+widgets=("vol" "date" "clock")
+
+symbols=""
+datas=""
+
+notify=""
+for w in ${widgets[@]}; do
+   data=${!w}
+   declare symbol=$w"_symbol"
+   symbol=${!symbol}
+   command_prefix=""
+   command_suffix=""
+   declare command=$w"_command"
+   command=${!command}
+   if [[ -n $command ]]; then
+      command_prefix="%{A:"$command":}"
+      command_suffix="%{A}"
+   fi
+   notify=$notify$command_prefix$symbol$sep$data$command_suffix$gap
+done
+notify=${notify%%$gap}
+
+$HOME/bin/notify_no_icon "$notify"

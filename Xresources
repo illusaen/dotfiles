@@ -12,7 +12,7 @@ st.tabspaces: 2
 st.borderpx: 24
 
 ! special
-*.foreground:   #e5e9f0
+*.foreground:   #b7bac0
 *.background:   #a0a0a0
 *.cursorColor:  #a0a0a0
 
@@ -25,7 +25,7 @@ st.borderpx: 24
 *.color9:       #d08770
 
 ! green
-*.color2:       #0fbcbb
+*.color2:       #cde0bd
 *.color10:      #a3be8c
 
 ! yellow
@@ -33,17 +33,17 @@ st.borderpx: 24
 *.color11:      #d8dee9
 
 ! blue
-*.color4:       #5e81ac
-*.color12:      #81a1c1
+*.color4:       #81a1c1
+*.color12:      #7490ad
 
 ! magenta
-*.color5:       #b48ead
+*.color5:       #cde8bd
 *.color13:      #a3be8c
 
 ! cyan
-*.color6:       #8fbcbb
-*.color14:      #88c0d0
+*.color6:       #8fb9bb
+*.color14:      #a3be8c
 
 ! white
 *.color7:       #d8dee9
-*.color15:      #e5e9f0
+*.color15:      #b7bac0

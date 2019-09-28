@@ -4,8 +4,8 @@
   background-focus:                  #404040;
   foreground-list:                   #e5e9f0;
   text-font:                         "Anka/Coder Condensed Bold 11";
-  list-8-window-padding:             8px;
-  inputbar-margin:                   8px;
+  list-8-window-padding:             4px;
+  inputbar-margin:                   4px;
   prompt-padding:                    8px;
   apps-textbox-prompt-colon-padding: 8px 0px;
   list-element-padding:              16px;

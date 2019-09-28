@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# this is a simple config for herbstluftwm
-
 hc() {
     herbstclient "$@"
 }
@@ -19,10 +17,9 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn st
 hc keybind $Mod-space spawn rofi -show 
-hc keybind Mod1+Return spawn notify_info
+hc keybind Mod1+Return spawn $HOME/bin/notify_info
 hc keybind Mod1+Shift+4 spawn flameshot gui -p ~/tmp
 
-# basic movement
 # focusing clients
 hc keybind $Mod-h     focus left
 hc keybind $Mod-j     focus down
@@ -50,8 +47,8 @@ hc keybind $Mod-Control-k       resize up +$resizestep
 hc keybind $Mod-Control-l       resize right +$resizestep
 
 # tags
-tag_names=( {1..4} )
-tag_keys=( {1..4} 0 )
+tag_names=( {1..5} )
+tag_keys=( {1..5} 0 )
 
 # In the use_index keybinding, check the presence of the my_monitor attribute,
 # before focusing the desired tag.
@@ -70,34 +67,12 @@ for i in ${!tag_names[@]} ; do
     fi
 done
 
-# # Add a keybinding for locking the current tag to the monitor it is displayed
-# # on. This is done by safing the current monitor index in the my_monitor
-# # attribute of the focused tag. If the monitor has a (nonempty) name, use the
-# # monitor name instead of its index.
-# herbstclient keybind $Mod-t chain \
-#     , new_attr string tags.focus.my_monitor \
-#     , substitute M monitors.focus.index set_attr tags.focus.my_monitor M \
-#     , try and \
-#         . compare monitors.focus.name != "" \
-#         . substitute M monitors.focus.name \
-#                 set_attr tags.focus.my_monitor M
-
-# # Add a keybinding for removing the lock
-# herbstclient keybind $Mod-Shift-t \
-#     remove_attr tags.focus.my_monitor
-
 # Statically define which tag should be send to which monitor
 lock_tag_to_monitor() {
     herbstclient chain \
         , new_attr string tags.by-name."$1".my_monitor \
         , set_attr tags.by-name."$1".my_monitor "$2"
 }
-# Already lock some of the tags to a monitor, for example:
-# lock the second tag to the monitor with index 0
-lock_tag_to_monitor 1 0
-lock_tag_to_monitor 2 0
-lock_tag_to_monitor 3 0
-lock_tag_to_monitor 4 1
 
 # cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
@@ -175,13 +150,21 @@ hc set tree_style '╾│ ├└╼─┐'
 # unlock, just to be sure
 hc unlock
 
-# do multi monitor setup here, e.g.:
-# hc set_monitors 1280x1024+0+0 1280x1024+1280+0
-# or simply:
-hc detect_monitors
+# Already lock some of the tags to a monitor:
+lock_tag_to_monitor 1 0
+lock_tag_to_monitor 2 0
+lock_tag_to_monitor 3 0
+lock_tag_to_monitor 4 0
+lock_tag_to_monitor 5 1
 
 if hc silent new_attr bool my_not_first_autostart ; then
   $HOME/bin/mount_work_share.sh
   xrandr --output DP-4 --mode 3440x1440 --rate 120.00 --output DP-0 --mode 2560x1440 --rate 59.95 --left-of DP-4
+  xrandr > /dev/shm/xrandr_output &
+  (sleep 0.5
+   $HOME/bin/bar_notifyd northeast &
+ ) &
   xsetroot -solid "$(xrdb -query | grep '.*color0' | awk '{print $NF}')"
 fi
+
+hc detect_monitors

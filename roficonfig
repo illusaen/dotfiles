@@ -1,8 +1,7 @@
 rofi.combi-modi: drun,run
-rofi.modi: combi,window
+rofi.modi: combi,TODOS:~/bin/rofi_todos.sh,window,FB:~/bin/file_browser.sh
 rofi.theme: ~/.local/share/rofi/material
 rofi.show-icons: true
 rofi.icon-theme: Paper
-rofi.columns: 2
 rofi.display-combi: Run
 rofi.display-window: Window
