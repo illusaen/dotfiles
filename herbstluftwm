@@ -162,7 +162,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
   xrandr --output DP-4 --mode 3440x1440 --rate 120.00 --output DP-0 --mode 2560x1440 --rate 59.95 --left-of DP-4
   xrandr > /dev/shm/xrandr_output &
   (sleep 0.5
-   $HOME/bin/bar_notifyd northeast &
+   $HOME/bin/bar_notifyd northwest &
    $HOME/bin/notifyd &
  ) &
   xsetroot -solid "$(xrdb -query | grep '.*color0' | awk '{print $NF}')"
