@@ -46,13 +46,12 @@ function get_bar_opts {
 
 	# select corner. default is northeast
 	position_x=$((monitor_x + monitor_width - pad_x - width))
-	position_y=$bar_pad_y
+  position_y=$((monitor_y + $bar_pad_y))
 	if [[ $corner == "southwest" ]]; then 
 		position_y=$((monitor_height - bar_pad_y - height))
-		position_x=$pad_x
+    position_x=$((monitor_x + $pad_x))
 	elif [[ $corner == "southeast" ]]; then
 		position_y=$((monitor_height - bar_pad_y - height))
-		position_x=$((monitor_width - width - pad_x))
 	elif [[ $corner == "northwest" ]]; then
     position_x=$((monitor_x + $pad_x))
 	fi

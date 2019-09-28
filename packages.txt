@@ -16,6 +16,7 @@ intellij-idea-ultimate-edition-jre
 kvantum-qt5
 kvantum-theme-materia
 lemonbar-xft-git
+libnotify
 libvncserver
 libxau
 libxcb
@@ -28,7 +29,6 @@ magic-wormhole
 materia-gtk-theme
 mosh
 mpv
-mumble
 nodejs
 npm
 nvidia
@@ -47,8 +47,9 @@ remmina
 rofi
 slack-desktop
 sqlitebrowser
-thunderbird
+sylpheed
 tmux
+ttf-font-awesome-4
 vim
 xcb-proto
 xcb-util
