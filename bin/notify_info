@@ -6,18 +6,10 @@ clock=$(date +'%I:%M %P')
 date_symbol="\uf073"
 date=$(date +'%a, %B %d')
 
-vol_symbol="\uf028"
-vol=`awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) | tail -n 1 | tr -d "%"`
-muted=`awk -F"[][]" '/dB/ { print $6 }' <(amixer sget Master) | tail -n 1`
-
-if [[ $muted == "off" ]]; then
-   vol_symbol="\uf026x"
-fi
-
 gap="   "
 sep=" "
 
-widgets=("vol" "date" "clock")
+widgets=("date" "clock")
 
 symbols=""
 datas=""
@@ -39,4 +31,4 @@ for w in ${widgets[@]}; do
 done
 notify=${notify%%$gap}
 
-$HOME/bin/notify_no_icon "$notify"
+echo -e "$notify" >> /dev/shm/notify_fifo_northwest

@@ -14,6 +14,7 @@ st.borderpx: 24
 ! special
 *.foreground:   #b7bac0
 *.background:   #a0a0a0
+*.darkBackground: #404040
 *.cursorColor:  #a0a0a0
 
 ! black

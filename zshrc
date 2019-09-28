@@ -3,6 +3,7 @@ ZSH_THEME="refined"
 export EDITOR="vim"
 export QT_STYLE_OVERRIDE="kvantum"
 export CONFIG_HOME="/home/wendy/.config"
+export PATH="/home/wendy/bin:$PATH"
 
 plugins=(git)
 source $ZSH/oh-my-zsh.sh

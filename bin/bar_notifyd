@@ -6,18 +6,15 @@ monitor_y=$(echo "$xrandr_output" | grep "primary" | awk '{print $4}' | awk -F+ 
 monitor_width=$(echo "$xrandr_output" | grep "primary" | awk -F'[ x+]' '{print $4}')
 monitor_height=$(echo "$xrandr_output" | grep "primary" | awk -F'[ x+]' '{print $5}')
 
-pad_x="10"
-pad_y="10"
-height="50"
-width_treshold=20
-in_pad="20"
+pad_x="16"
+pad_y="16"
+height="48"
+width_threshold=24
+in_pad="16"
 offset="-2"
 
-font="Anka/Coder Condensed:weight=bold:size=8"
+font="FreeSans:weight=bold:size=10"
 font_icons="FontAwesome:size=8"
-
-color_fg="#8fb9bb"
-color_bg="#505050"
 
 dismiss_time=3
 
@@ -57,10 +54,10 @@ function get_bar_opts {
 		position_y=$((monitor_height - bar_pad_y - height))
 		position_x=$((monitor_width - width - pad_x))
 	elif [[ $corner == "northwest" ]]; then
-		position_x=$pad_x
+    position_x=$((monitor_x + $pad_x))
 	fi
 
-	echo "-d -g ${width}x${bar_height}+$position_x+$position_y -B $color_bg -f $font -f $font_icons -f monospace -o $bar_offset -n $bar_name"
+	echo "-d -g ${width}x${bar_height}+$position_x+$position_y -B $(xrdb -query | grep '*.darkBackground' | awk '{print $NF}') -o 2 -f $font -o -1 -f $font_icons -f monospace -o $bar_offset -n $bar_name"
 }
 
 function dismiss {
@@ -91,7 +88,7 @@ function get_subline_pid_file {
 }
 
 function echo_notify {
-	echo "%{c}%{F$color_fg}$1" > $2
+	echo "%{c}%{F$(xrdb -query | grep '*.color6' | awk '{print $NF}')}$1" > $2
 }
 
 (
@@ -110,20 +107,19 @@ tail -f $notify_fifo | while read line; do
 	width=0
 	for subline in "${sublines[@]}"; do
 		parsed_summary=$(echo $subline | sed -e 's/\%[^%}]*}//g')
-		text_width=$(txtw -f $font "${parsed_summary}")
+		text_width=$($HOME/bin/txtw -f "$font" "${parsed_summary}")
 
 		_width=$((2 * in_pad + text_width))
 		[[ $_width -gt $width ]] && width=$_width
 	done
-
 	width_diff=$(($prev_width - $width))
 
 	# Dismiss if wrong size.
 	timestamp=$(cat $timestamp_file)
 	if [[ -n $timestamp && -n $prev_count && 
 		(${#sublines[@]} != $prev_count ||
-	     ($width_diff -gt 0 && $width_diff -gt $width_treshold) ||
-		 ($width_diff -lt 0 && $width_diff -lt -$width_treshold)) ]]; then
+	     ($width_diff -gt 0 && $width_diff -gt $width_threshold) ||
+		 ($width_diff -lt 0 && $width_diff -lt -$width_threshold)) ]]; then
 		dismiss
 	fi
 
