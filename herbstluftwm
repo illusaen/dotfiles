@@ -163,6 +163,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
   xrandr > /dev/shm/xrandr_output &
   (sleep 0.5
    $HOME/bin/bar_notifyd northeast &
+   $HOME/bin/notifyd &
  ) &
   xsetroot -solid "$(xrdb -query | grep '.*color0' | awk '{print $NF}')"
 fi

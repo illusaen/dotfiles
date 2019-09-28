@@ -1,13 +1,11 @@
-# comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort) 
 alsa-utils
 amd-ucode
-chromium
-chromium-widevine
 code
 dos2unix
 dosfstools
 electron
 fasd
+firefox
 flameshot
 freerdp
 git
@@ -17,7 +15,7 @@ intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 kvantum-qt5
 kvantum-theme-materia
-lemonbar-git
+lemonbar-xft-git
 libvncserver
 libxau
 libxcb
@@ -49,6 +47,7 @@ remmina
 rofi
 slack-desktop
 sqlitebrowser
+thunderbird
 tmux
 vim
 xcb-proto
@@ -61,3 +60,5 @@ xorg-xrandr
 xorg-xrdb
 xorg-xsetroot
 zsh
+
+# comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort)

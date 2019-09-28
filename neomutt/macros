@@ -1,7 +1,0 @@
-macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
-bind index "^" imap-fetch-mail"
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
-macro attach 'B' "<pipe-entry>cat >~/.cache/neomutt/mail.html &&  ~/.cache/"
-macro index,pager b '<enter-command>source /home/wendy/.mutt/aliases<enter><bounce-message>'
-macro index,pager f '<enter-command>source /home/wendy/.mutt/aliases<enter><forward-message>'
-macro index,pager m '<enter-command>source /home/wendy/.mutt/aliases<enter><mail>'

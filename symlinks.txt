@@ -5,7 +5,6 @@ vimrc|.vimrc
 zshrc|.zshrc
 bin|bin
 herbstluftwm|.config/herbstluftwm/autostart
-neomutt|.config/neomutt
 roficonfig|.config/rofi/config
 user-dirs.dirs|.config/user-dirs.dirs
 rofi-themes|.local/share/rofi
