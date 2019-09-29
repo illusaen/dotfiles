@@ -1,7 +1,9 @@
 alsa-utils
 amd-ucode
+barnard-git
 claws-mail
 code
+dialog
 dos2unix
 electron
 fasd
@@ -44,6 +46,7 @@ remmina
 rofi
 slack-desktop
 sqlitebrowser
+task
 tmux
 ttf-font-awesome-4
 vim

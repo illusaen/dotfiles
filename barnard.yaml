@@ -1,0 +1,19 @@
+hotkeys:
+  talk: f1
+  volumedown: f5
+  volumeup: f6
+  exit: f10
+  toggletimestamps: f3
+  switchviews: tab
+  clearoutput: null
+  scrollup: pgup
+  scrolldown: pgdn
+  scrolltotop: null
+  scrolltobottom: null
+micvolume: 4
+inputdevice: ""
+outputdevice: ""
+servers: []
+defaultserver: localhost:64738
+username: fatale
+notifycommand: $HOME/bin/barnard-sound.sh "%event" "%who" "%what"
