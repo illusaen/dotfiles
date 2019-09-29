@@ -1,0 +1,80 @@
+@import url('file:///home/matheus/.cache/homepage/colors.css');
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:root {
+/*********************************/
+/**** TAB BAR VARIABLES ****/
+/*********************************/
+    --bg-dark: #ffffff;
+    --fg-dark: #a0a0a0;
+    --bg-light: #ffffff;
+    --fg-light: #202020;
+    --tab-fonts: "Anka/Coder Condensed"; 
+    --tab-font-size: 9pt;
+    --tab-text-align: center;
+    --chrome-content-separator-color: none !important;
+
+/*********************************/
+/**** URL BAR VARIABLES ****/
+/*********************************/
+    --url-background: var(--bg-light); 
+    --url-foreground: var(--fg-light);
+    --url-fonts: "Anka/Coder Condensed"; 
+    --url-font-size: 9pt;
+    --url-text-align: left;
+}
+
+/*********************************/
+/**** MENU BAR CONFIG ****/
+/*********************************/
+#navigator-toolbox, #main-window[sizemode="normal"] #navigator-toolbox, #main-window[sizemode="maximized"] #navigator-toolbox {
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+}
+
+/*********************************/
+/**** TAB BAR CONFIG ****/
+/*********************************/
+.titlebar-spacer[type="post-tabs"] {
+   display: none !important;
+}
+
+#TabsToolbar .tabbrowser-tab .tab-line {
+   display: none !important;
+}
+
+.tabbrowser-tab * {
+   background: none !important; 
+   list-style-image: none !important;
+   -moz-appearance: none !important;
+}
+
+.tabs-newtab-button * {
+    -moz-appearance: none !important;
+    display: none !important;
+}
+
+#PanelUI-menu-button, #PanelUI-button, .restore-tabs-button {
+   display: none !important;
+}
+
+#TabsToolbar .tab-background {
+   background: transparent !important;
+   border: 0px !important;
+}
+
+#TabsToolbar{
+   border-bottom: 0px transparent !important;
+ }
+ 
+ tab, .tabbrowser-tabs *|tab {
+   color: var(--fg-dark) !important;
+}
+
+.tab-background-middle[selected="true"], .tabbrowser-tab[selected="true"], .tab-background-middle[selected="true"]:hover, .tabbrowser-tab[selected="true"]:hover {
+   color: var(--fg-light) !important;
+   font-weight: bold !important;
+}
