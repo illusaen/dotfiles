@@ -15,7 +15,7 @@ st.borderpx: 24
 *.foreground:   #b7bac0
 *.background:   #202020
 *.cursorColor:  #a0a0a0
-*.darkBackground: #404040
+*.darkBackground: #4c566a
 
 ! black
 *.color0:       #202020

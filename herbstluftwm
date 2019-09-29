@@ -108,9 +108,9 @@ hc keybind $Mod-i jumpto urgent
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
-hc set frame_gap 12
+hc set frame_gap 8
 hc set frame_padding 0
-hc set window_gap 12
+hc set window_gap 4
 
 hc set snap_distance 24
 hc set snap_gap 16
