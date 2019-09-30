@@ -21,4 +21,14 @@ alias dl="cd ~/tmp"
 alias l="ls -al"
 alias ls="ls --color=auto"
 alias x="python $HOME/bin/extract.py"
+alias t="task"
+alias ta="task add"
+alias tn="task next"
+alias tp="task +personal"
+alias tm="task +asamud"
+alias tl="task list"
+alias tco="task completed"
+alias calc="task calc"
 
+function td { yes | task $* done; }
+function ts { task $* start; }
