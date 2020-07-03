@@ -13,38 +13,38 @@ st.borderpx: 24
 
 ! special
 *.foreground:   #b7bac0
-*.background:   #202020
+*.background:   #000000
 *.cursorColor:  #a0a0a0
 *.darkBackground: #4c566a
 
 ! black
-*.color0:       #202020
-*.color8:       #505050
+*.color0:       #000000
+*.color8:       #392946 
 
 ! red
-*.color1:       #bf616a
-*.color9:       #d08770
+*.color1:       #9b0e3e
+*.color9:       #d43e3c
 
 ! green
-*.color2:       #cde0bd
-*.color10:      #a3be8c
+*.color2:       #2c645e
+*.color10:      #77b02a
 
 ! yellow
-*.color3:       #ebcb8b
-*.color11:      #d8dee9
+*.color3:       #ed7b39
+*.color11:      #fff540
 
 ! blue
-*.color4:       #81a1c1
-*.color12:      #7490ad
+*.color4:       #144491
+*.color12:      #488bd4
 
 ! magenta
-*.color5:       #cde8bd
-*.color13:      #a3be8c
+*.color5:       #94007a
+*.color13:      #d61a88
 
 ! cyan
-*.color6:       #8fb9bb
-*.color14:      #a3be8c
+*.color6:       #10908e
+*.color14:      #78d7ff
 
 ! white
-*.color7:       #d8dee9
-*.color15:      #b7bac0
+*.color7:       #c7d4e1
+*.color15:      #faffff
