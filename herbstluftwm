@@ -14,7 +14,7 @@ Mod=Mod4   # Use the super key as the main modifier
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
+hc keybind $Mod-q close
 hc keybind $Mod-Return spawn st
 hc keybind $Mod-space spawn rofi -show 
 hc keybind Mod1+Return spawn $HOME/bin/notify_info
@@ -47,8 +47,8 @@ hc keybind $Mod-Control-k       resize up +$resizestep
 hc keybind $Mod-Control-l       resize right +$resizestep
 
 # tags
-tag_names=( {1..5} )
-tag_keys=( {1..5} 0 )
+tag_names=( {1..6} )
+tag_keys=( {1..6} 0 )
 
 # In the use_index keybinding, check the presence of the my_monitor attribute,
 # before focusing the desired tag.
@@ -148,18 +148,20 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc set tree_style '╾│ ├└╼─┐'
 
 # unlock, just to be sure
-hc unlock
+#hc unlock
 
 # Already lock some of the tags to a monitor:
-lock_tag_to_monitor 1 0
-lock_tag_to_monitor 2 0
+lock_tag_to_monitor 1 1
+lock_tag_to_monitor 2 1
 lock_tag_to_monitor 3 0
 lock_tag_to_monitor 4 0
-lock_tag_to_monitor 5 1
+lock_tag_to_monitor 5 2
+lock_tag_to_monitor 6 2
 
 if hc silent new_attr bool my_not_first_autostart ; then
   $HOME/bin/mount_work_share.sh
-  xrandr --output DP-4 --mode 3440x1440 --rate 120.00 --output DP-0 --mode 2560x1440 --rate 59.95 --left-of DP-4
+  xrandr --output DP-0 --mode 3440x1440 --rate 120.00 --primary --output DP-2 --mode 2560x1440 --rate 59.95 --left-of DP-0 --output HDMI-0 --mode 2560x1440 --rate 59.95 --right-of DP-0
+  #xrandr --output DP-4 --mode 3440x1440 --rate 120.00
   xrandr > /dev/shm/xrandr_output &
   (sleep 0.5
    $HOME/bin/bar_notifyd northwest &

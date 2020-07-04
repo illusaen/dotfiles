@@ -1,4 +1,3 @@
-barnard.yaml|.barnard.yaml
 gitconfig|.gitconfig
 taskrc|.taskrc
 tmux.conf|.tmux.conf

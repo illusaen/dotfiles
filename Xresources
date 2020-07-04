@@ -6,7 +6,7 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xcursor.size: 16
 
-st.font: -*-Anka/Coder Condensed-bold-*-*-*-11-*-*-*-*-*-*-1
+st.font: -*-Anka/Coder Condensed-bold-*-*-*-12-*-*-*-*-*-*-1
 st.termname: st-256color
 st.tabspaces: 2
 st.borderpx: 24
