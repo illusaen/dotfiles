@@ -2,6 +2,7 @@ export ZSH="/home/wendy/.oh-my-zsh"
 ZSH_THEME="refined"
 export EDITOR="vim"
 export QT_STYLE_OVERRIDE="kvantum"
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export CONFIG_HOME="/home/wendy/.config"
 export PATH="/home/wendy/bin:$PATH"
 

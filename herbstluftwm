@@ -160,6 +160,7 @@ lock_tag_to_monitor 6 2
 
 if hc silent new_attr bool my_not_first_autostart ; then
   $HOME/bin/mount_work_share.sh
+  $HOME/bin/natural_scrolling.sh Razer
   xrandr --output DP-0 --mode 3440x1440 --rate 120.00 --primary --output DP-2 --mode 2560x1440 --rate 59.95 --left-of DP-0 --output HDMI-0 --mode 2560x1440 --rate 59.95 --right-of DP-0
   #xrandr --output DP-4 --mode 3440x1440 --rate 120.00
   xrandr > /dev/shm/xrandr_output &
